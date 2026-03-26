@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import type { IVinho } from '../interfaces/IVinhos'
-import CardVinho from '../components/CardVinho'
 import Header from '../layout/Header'
 import Sidebar from '../layout/SideBar'
 import Footer from '../layout/Footer'
+import Dashboard from '../pages/Dashboard'
+import Inventario from '../pages/Inventario'
 
 function App() {
   const [vinhos, setVinhos] = useState<IVinho[]>([
@@ -16,43 +17,17 @@ function App() {
     setVinhos(vinhos.map(v => v.id === id ? { ...v, status: 'consumido' } : v));
   };
 
-  const totalEstoque = vinhos.filter(v => v.status === 'estoque').length;
-
   return (
-    <div className="container-fluid p-0">
+    <div className="container-fluid p-0 d-flex flex-column vh-100">
       <Header />
-
-      <div className="row g-0">
+      <div className="row g-0 flex-grow-1">
         <Sidebar />
-
         <main className="col-md-9 p-5">
-          <section>
-            <h2 className="mb-4">Painel de Controle</h2>
-            <div className="row mb-5">
-              <div className="col-md-4">
-                <div className="card border-primary shadow-sm">
-                  <div className="card-body text-center">
-                    <h5 className="card-title text-muted">Garrafas em Estoque</h5>
-                    <p className="display-4 fw-bold text-primary">{totalEstoque}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <h3>Minha Adega</h3>
-            <div className="row mt-3">
-              {vinhos.map(vinho => (
-                <CardVinho 
-                  key={vinho.id} 
-                  vinho={vinho} 
-                  onConsumir={marcarComoConsumido} 
-                />
-              ))}
-            </div>
-          </section>
+          <Dashboard vinhos={vinhos} />
+          <hr className="my-5" />
+          <Inventario vinhos={vinhos} onConsumir={marcarComoConsumido} />
         </main>
       </div>
-
       <Footer />
     </div>
   )
