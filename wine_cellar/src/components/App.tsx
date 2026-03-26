@@ -5,6 +5,7 @@ import SideBar from '../layout/SideBar'
 import Footer from '../layout/Footer'
 import Dashboard from '../pages/Dashboard'
 import Inventario from '../pages/Inventario'
+import Cadastro from '../pages/Cadastro';
 
 function App() {
   const [vinhos, setVinhos] = useState<IVinho[]>([
@@ -13,7 +14,11 @@ function App() {
     { id: 3, nome: "Chardonnay Branco", uva: "Chardonnay", safra: 2022, status: "consumido" },
   ]);
 
-  const [abaAtiva, setAbaAtiva] = useState<'dashboard' | 'inventario'>('dashboard');
+  const [abaAtiva, setAbaAtiva] = useState<'dashboard' | 'inventario' | 'cadastro'>('dashboard');
+
+  const adicionarVinho = (novoVinho: IVinho) => {
+  setVinhos([...vinhos, novoVinho]);
+};
 
   const marcarComoConsumido = (id: number) => {
     setVinhos(vinhos.map(v => v.id === id ? { ...v, status: 'consumido' } : v));
@@ -26,11 +31,9 @@ function App() {
         <SideBar setAba={setAbaAtiva} abaAtual={abaAtiva} />
 
         <main className="col-md-9 p-5">
-          {abaAtiva === 'dashboard' ? (
-            <Dashboard vinhos={vinhos} />
-          ) : (
-            <Inventario vinhos={vinhos} onConsumir={marcarComoConsumido} />
-          )}
+          {abaAtiva === 'dashboard' && <Dashboard vinhos={vinhos} />}
+          {abaAtiva === 'inventario' && <Inventario vinhos={vinhos} onConsumir={marcarComoConsumido} />}
+          {abaAtiva === 'cadastro' && <Cadastro onAdicionar={adicionarVinho} setAba={setAbaAtiva} />}
         </main>
       </div>
       <Footer />

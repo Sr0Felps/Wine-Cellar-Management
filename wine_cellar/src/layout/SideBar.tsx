@@ -1,5 +1,5 @@
 interface SideBarProps {
-  setAba: (aba: 'dashboard' | 'inventario') => void;
+  setAba: (aba: 'dashboard' | 'inventario' | 'cadastro') => void;
   abaAtual: string;
 }
 
@@ -18,6 +18,12 @@ const SideBar = ({ setAba, abaAtual }: SideBarProps) => {
           onClick={() => setAba('inventario')}
         >
           📦 Inventário
+        </button>
+        <button 
+           className={`btn text-start ${abaAtual === 'cadastro' ? 'btn-primary' : 'btn-outline-secondary'}`}
+           onClick={() => setAba('cadastro')}
+          >
+            ➕ Novo Vinho
         </button>
       </nav>
     </aside>
