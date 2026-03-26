@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { IVinho } from '../interfaces/IVinhos'
 import CardVinho from '../components/CardVinho'
 import Header from '../layout/Header'
+import Sidebar from '../layout/SideBar'
 
 function App() {
   const [vinhos, setVinhos] = useState<IVinho[]>([
@@ -21,12 +22,7 @@ function App() {
       <Header />
 
       <div className="row g-0">
-        <aside className="col-md-3 bg-light border-end vh-100 p-4">
-          <nav className="nav flex-column gap-2">
-            <button className="btn btn-primary text-start">📊 Dashboard</button>
-            <button className="btn btn-outline-secondary text-start">📦 Inventário</button>
-          </nav>
-        </aside>
+        <Sidebar />
 
         <main className="col-md-9 p-5">
           <section>
