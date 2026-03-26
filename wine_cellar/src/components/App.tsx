@@ -3,6 +3,7 @@ import type { IVinho } from '../interfaces/IVinhos'
 import CardVinho from '../components/CardVinho'
 import Header from '../layout/Header'
 import Sidebar from '../layout/SideBar'
+import Footer from '../layout/Footer'
 
 function App() {
   const [vinhos, setVinhos] = useState<IVinho[]>([
@@ -52,12 +53,7 @@ function App() {
         </main>
       </div>
 
-      <footer className="bg-dark text-white p-4 mt-auto">
-        <address className="mb-0 text-center">
-          <strong>Filipe Costa Junqueira</strong><br />
-          ADS - PUC Goiás | Prof. Alexandre Almeida
-        </address>
-      </footer>
+      <Footer />
     </div>
   )
 }
