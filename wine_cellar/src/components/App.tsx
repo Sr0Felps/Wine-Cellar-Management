@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { IVinho } from '../interfaces/IVinhos'
 import Header from '../layout/Header'
-import Sidebar from '../layout/SideBar'
+import SideBar from '../layout/SideBar'
 import Footer from '../layout/Footer'
 import Dashboard from '../pages/Dashboard'
 import Inventario from '../pages/Inventario'
@@ -13,6 +13,8 @@ function App() {
     { id: 3, nome: "Chardonnay Branco", uva: "Chardonnay", safra: 2022, status: "consumido" },
   ]);
 
+  const [abaAtiva, setAbaAtiva] = useState<'dashboard' | 'inventario'>('dashboard');
+
   const marcarComoConsumido = (id: number) => {
     setVinhos(vinhos.map(v => v.id === id ? { ...v, status: 'consumido' } : v));
   };
@@ -21,11 +23,14 @@ function App() {
     <div className="container-fluid p-0 d-flex flex-column vh-100">
       <Header />
       <div className="row g-0 flex-grow-1">
-        <Sidebar />
+        <SideBar setAba={setAbaAtiva} abaAtual={abaAtiva} />
+
         <main className="col-md-9 p-5">
-          <Dashboard vinhos={vinhos} />
-          <hr className="my-5" />
-          <Inventario vinhos={vinhos} onConsumir={marcarComoConsumido} />
+          {abaAtiva === 'dashboard' ? (
+            <Dashboard vinhos={vinhos} />
+          ) : (
+            <Inventario vinhos={vinhos} onConsumir={marcarComoConsumido} />
+          )}
         </main>
       </div>
       <Footer />
