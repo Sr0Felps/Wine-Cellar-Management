@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { IVinho } from '../interfaces/IVinhos'
 import CardVinho from '../components/CardVinho'
+import Header from '../layout/Header'
 
 function App() {
   const [vinhos, setVinhos] = useState<IVinho[]>([
@@ -17,9 +18,7 @@ function App() {
 
   return (
     <div className="container-fluid p-0">
-      <header className="bg-dark text-white p-4 shadow">
-        <h1>WineCellar Manager 🍷</h1>
-      </header>
+      <Header />
 
       <div className="row g-0">
         <aside className="col-md-3 bg-light border-end vh-100 p-4">
