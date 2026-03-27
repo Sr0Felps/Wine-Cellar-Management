@@ -5,25 +5,25 @@ interface SideBarProps {
 
 const SideBar = ({ setAba, abaAtual }: SideBarProps) => {
   return (
-    <aside className="col-md-3 bg-light border-end vh-100 p-4">
-      <nav className="nav flex-column gap-2">
+    <aside className="col-md-3 border-end p-4 flex-shrink-0" style={{ backgroundColor: 'var(--bege-creme)', minHeight: '100%' }}>
+      <nav className="nav flex-column gap-3">
         <button 
-          className={`btn text-start ${abaAtual === 'dashboard' ? 'btn-primary' : 'btn-outline-secondary'}`}
+          className={`btn text-start shadow-sm fw-bold ${abaAtual === 'dashboard' ? 'btn-roxo' : 'btn-outline-vinho'}`}
           onClick={() => setAba('dashboard')}
         >
-          📊 Dashboard
+          <i className="bi bi-speedometer2 me-2"></i> Dashboard
         </button>
         <button 
-          className={`btn text-start ${abaAtual === 'inventario' ? 'btn-primary' : 'btn-outline-secondary'}`}
+          className={`btn text-start shadow-sm fw-bold ${abaAtual === 'inventario' ? 'btn-roxo' : 'btn-outline-vinho'}`}
           onClick={() => setAba('inventario')}
         >
-          📦 Inventário
+          <i className="bi bi-box-seam me-2"></i> Inventário
         </button>
         <button 
-           className={`btn text-start ${abaAtual === 'cadastro' ? 'btn-primary' : 'btn-outline-secondary'}`}
-           onClick={() => setAba('cadastro')}
-          >
-            ➕ Novo Vinho
+          className={`btn text-start shadow-sm fw-bold ${abaAtual === 'cadastro' ? 'btn-roxo' : 'btn-outline-vinho'}`}
+          onClick={() => setAba('cadastro')}
+        >
+          <i className="bi bi-plus-circle me-2"></i> Novo Vinho
         </button>
       </nav>
     </aside>

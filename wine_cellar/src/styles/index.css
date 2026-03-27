@@ -1,0 +1,51 @@
+:root {
+  --roxo-vinho: #4a1346;
+  --roxo-claro: #7b2c75;
+  --bege-claro: #f5f5dc;
+  --bege-creme: #e9e4d4;
+  --texto-vinho: #2c0b2a;
+}
+
+.bg-roxo-vinho {
+  background-color: var(--roxo-vinho) !important;
+}
+
+.btn-roxo {
+  background-color: var(--roxo-vinho) !important;
+  color: #f5f5dc !important;
+  border: none;
+}
+
+.btn-outline-dark {
+  border-color: var(--roxo-vinho) !important;
+  color: var(--roxo-vinho) !important;
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--roxo-vinho) !important;
+  color: white !important;
+}
+
+.btn-roxo {
+  background-color: var(--roxo-vinho) !important;
+  color: var(--bege-claro) !important;
+  border: none;
+}
+
+.btn-roxo:hover {
+  background-color: var(--roxo-claro) !important;
+}
+
+.btn-outline-vinho {
+  border: 1px solid var(--roxo-vinho) !important;
+  color: var(--roxo-vinho) !important;
+}
+
+.btn-outline-vinho:hover {
+  background-color: var(--roxo-vinho) !important;
+  color: var(--bege-claro) !important;
+}
+
+.border-vinho {
+  border-color: var(--roxo-vinho) !important;
+}
