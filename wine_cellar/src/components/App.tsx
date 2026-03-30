@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <div className="container-fluid p-0 d-flex flex-column vh-100">
+    <div className="container-fluid p-0 d-flex flex-column min-vh-100">
       <Header />
       <div className="row g-0 flex-grow-1">
         

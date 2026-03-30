@@ -9,8 +9,8 @@ interface InventarioProps {
 const Inventario = ({ vinhos, onConsumir }: InventarioProps) => {
   return (
     <section>
-      <h3>Minha Adega</h3>
-      <div className="row mt-3">
+      <h2 className = "mb-4" style={{ color: 'var(--roxo-vinho)' }}>Minha Adega</h2>
+      <div className="row g-4">
         {vinhos.map(vinho => (
           <CardVinho 
             key={vinho.id} 
