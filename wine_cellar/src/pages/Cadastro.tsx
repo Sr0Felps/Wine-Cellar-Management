@@ -11,19 +11,26 @@ const Cadastro = ({ onAdicionar, setAba }: CadastroProps) => {
   const [uva, setUva] = useState('');
   const [safra, setSafra] = useState<number>(new Date().getFullYear());
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    const novoVinho: IVinho = {
-      id: Math.random(),
-      nome,
-      uva,
-      safra,
-      status: 'estoque'
-    };
+  e.preventDefault();
+  
+  if (!nome || !uva) return;
 
-    onAdicionar(novoVinho);
-    setAba('inventario');
+  const novoVinho: IVinho = {
+    id: Math.random(),
+    nome,
+    uva,
+    safra,
+    status: 'estoque'
   };
+
+  onAdicionar(novoVinho);
+  
+  setNome('');
+  setUva('');
+  setSafra(new Date().getFullYear());
+  
+  setAba('inventario');
+};
 
   return (
     <section>

@@ -49,3 +49,11 @@
 .border-vinho {
   border-color: var(--roxo-vinho) !important;
 }
+
+@media (max-width: 768px) {
+  aside {
+    height: auto !important;
+    min-height: auto !important;
+    height: none !important;  
+  }
+}
